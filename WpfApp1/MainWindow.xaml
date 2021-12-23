@@ -5,31 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Калькулятор заработной платы" Height="327.532" Width="499.051" Background="#FFD9F3AB" ForceCursor="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="205.793" Width="553.605">
     <Grid>
-        <TextBox x:Name="txtOk" HorizontalAlignment="Left" Height="23" Margin="134,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFAFFFD3"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="19,46,0,0" TextWrapping="Wrap" Text="Оклад" VerticalAlignment="Top" Background="#FFFFFFB1"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="19,76,0,0" TextWrapping="Wrap" Text="Р. Коэф" VerticalAlignment="Top" Background="#FFFFFFB1"/>
-        <TextBox x:Name="txtOd"  HorizontalAlignment="Left" Height="23" Margin="134,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFAFFFD3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,112,0,0" TextWrapping="Wrap" Text="Отработанные дни" VerticalAlignment="Top" Background="#FFFFFFB1"/>
-        <TextBox x:Name="txtRd" HorizontalAlignment="Left" Height="23" Margin="134,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFAFFFD3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,150,0,0" TextWrapping="Wrap" Text="Рабочие дни" VerticalAlignment="Top" Background="#FFFFFFB1"/>
-        <TextBox x:Name="txtPrem" HorizontalAlignment="Left" Height="23" Margin="134,187,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFAFFFD3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,187,0,0" TextWrapping="Wrap" Text="Премия" VerticalAlignment="Top" Background="#FFFFFFB1"/>
-        <Button x:Name="btnVich" Content="Вычислить" HorizontalAlignment="Left" Margin="343,210,0,0" VerticalAlignment="Top" Width="75" Click="btnVich_Click" Background="#FFAFFFD3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,251,0,0" TextWrapping="Wrap" Text="Зарплата на руки" VerticalAlignment="Top" Width="105" Background="#FFFFFFB1"/>
-        <TextBlock x:Name="Otvet" HorizontalAlignment="Left" Margin="134,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" Background="#FFFDFDAB"/>
-        <ComboBox x:Name="Otv" HorizontalAlignment="Left" Margin="134,76,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Otv_SelectionChanged">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                    <GradientStop Color="#FFAFFFD3" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-            <TextBlock>12%</TextBlock>
-            <TextBlock>13%</TextBlock>
-            <TextBlock>14%</TextBlock>
-            <TextBlock>15%</TextBlock>
-        </ComboBox>
+        <Button Content="Ввод" HorizontalAlignment="Left" Margin="270,53,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox x:Name="txtB1" HorizontalAlignment="Left" Height="23" Margin="129,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="142,32,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="242,142,0,0" TextWrapping="Wrap" Text="Минимум один символ из набора: ! @ # $ % ^" VerticalAlignment="Top" Background="#FFFFCCCC"/>
+        <TextBlock HorizontalAlignment="Left" Margin="242,126,0,0" TextWrapping="Wrap" Text="Минимум 1 цифра" VerticalAlignment="Top" Background="#FFFFCCCC"/>
+        <TextBlock x:Name="txtkol" HorizontalAlignment="Left" Margin="75,86,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="242,110,0,0" TextWrapping="Wrap" Text="Минимум 1 прописная буква" VerticalAlignment="Top" Background="#FFFFCCCC"/>
+        <TextBlock x:Name="lbl1" HorizontalAlignment="Left" Margin="242,94,0,0" TextWrapping="Wrap" Text="минимум 6 символов" VerticalAlignment="Top" Background="#FFFFCCCC"/>
+
     </Grid>
 </Window>

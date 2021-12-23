@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApp1
 {
@@ -23,45 +24,73 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            lbl1.Visibility = Visibility.Hidden; 
         }
 
-        private void btnVich_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int p = Otv.SelectedIndex;
-            double polzp1, polzp2, ndfl, otvet;
-            polzp1 = Convert.ToDouble(txtOk.Text) * Convert.ToDouble(txtOd.Text)/Convert.ToDouble(txtRd.Text) + Convert.ToDouble(txtPrem.Text);
-            Otvet.Text = Convert.ToString(polzp1);
-            if (p == 0)
+            //int vvod=0;
+
+            //string text = txtB1.Text; 
+            //int kol  = text.Length;
+            //if (kol < 6)  
+            //{
+            //    lbl1.Visibility = Visibility.Visible;
+            //}
+            //txtkol.Text = Convert.ToString(kol);
+
+            //for (int i = 0; i < text.Length; i++)
+            //    if (text[i] == text.ToUpper()[i]) Console.WriteLine("{0} в верхнем регистре ", str[i]);
+            try
             {
-                polzp2 = polzp1 * 1.2;
-                ndfl = polzp2 * 0.13;
-                otvet = polzp2 - ndfl;
-                Otvet.Text = Convert.ToString(otvet);
+                string s = txtB1.Text;
+                char[] array = s.ToCharArray();
+                int d = s.Length;
+                int k = 0;
+                int u = 0;
+                int b = 0;
+                char p = '$';
+                char j = '!';
+                char f = '@';
+                char h = '%';
+                char z = '^';
+                char x = '#';
+                for(int i=0; i<d; i++)
+                {
+                    if (char.IsUpper(array[i]))
+                        k++;
+                }
+                for (int i = 0; i < d; i++)
+                {
+                    if (char.IsNumber(array[i]))
+                        u++;
+                }
+                for (int i = 0; i < d; i++)
+                {
+                    if (array[i] == p || array[i] == j || array[i] == f || array[i] == h || array[i] == z || array[i] == z)
+                        b++;
+                }
+                if(k>0 && u>1 && b>0)
+                {
+                    MessageBox.Show("Пароль сохранён в password.txt");
+                    StreamWriter SW = new StreamWriter(new FileStream(@"F:\password\password.txt", FileMode.Create, FileAccess.Write));
+                    SW.Write(s);
+                    SW.Close();
+                }
+                else 
+                {
+                    MessageBox.Show("В пароле допущены ошибки, чтобы сохранить пароль \nнужно минимум 6 символов \n1 прописная буква\n1цифра\nминимум один символ из набора !@#$%^");
+                }
             }
-            if (p == 1)
+            catch
             {
-                polzp2 = polzp1 * 1.3;
-                ndfl = polzp2 * 0.13;
-                otvet = polzp2 - ndfl;
-                Otvet.Text = Convert.ToString(otvet);
+
             }
-            if (p == 2)
-            {
-                polzp2 = polzp1 * 1.4;
-                ndfl = polzp2 * 0.13;
-                otvet = polzp2 - ndfl;
-                Otvet.Text = Convert.ToString(otvet);
-            }
-            if (p == 3)
-            {
-                polzp2 = polzp1 * 1.5;
-                ndfl = polzp2 * 0.13;
-                otvet = polzp2 - ndfl;
-                Otvet.Text = Convert.ToString(otvet);
-            }
+           
+
         }
 
-        private void Otv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
